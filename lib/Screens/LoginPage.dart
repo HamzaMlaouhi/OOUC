@@ -122,7 +122,7 @@ class LoginPage extends StatelessWidget {
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
                               side: BorderSide(color: Color(0xff2b335d))))),
-                  onPressed: () => Navigator.pushNamed(context, '/MenuPage')),
+                  onPressed: () => Navigator.pushNamed(context, '/HomePage')),
             ),
           ),
           SizedBox(

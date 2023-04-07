@@ -1,6 +1,7 @@
+import 'package:OOUC/Widgets/BottomNavigationBar.dart';
 import 'package:flutter/material.dart';
 import 'package:OOUC/Screens/LoginPage.dart';
-import 'package:OOUC/Screens/MenuPage.dart';
+import 'package:OOUC/Screens/HomePage.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -13,8 +14,8 @@ class RouteGenerator {
       case '/loginPage':
         return MaterialPageRoute(builder: (_) => LoginPage());
 
-      case '/MenuPage':
-        return MaterialPageRoute(builder: (_) => MenuPage());
+      case '/HomePage':
+        return MaterialPageRoute(builder: (_) => HomePage());
 
       default:
         return _errorRoute();
