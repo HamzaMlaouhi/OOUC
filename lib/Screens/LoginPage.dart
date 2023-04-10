@@ -1,6 +1,5 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -16,7 +15,7 @@ class LoginPage extends StatelessWidget {
             height: height * 0.09,
           ),
           Center(
-            child: Container(
+            child: SizedBox(
                 height: height * 0.35,
                 width: width * 1,
                 child: Image.asset('assets/image/LogoOnboarding.png')),
@@ -26,7 +25,7 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                 width: width * 0.08,
               ),
-              Align(
+              const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "Log In",
@@ -65,7 +64,7 @@ class LoginPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 30, left: 30),
             child: TextFormField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   border: InputBorder.none,
                   fillColor: Color(0xfff3f3f4),
                   filled: true),
@@ -96,11 +95,11 @@ class LoginPage extends StatelessWidget {
             child: TextFormField(
               decoration: InputDecoration(
                   suffixIcon: IconButton(
-                    icon: Icon(Icons.remove_red_eye),
+                    icon: const Icon(Icons.remove_red_eye),
                     onPressed: () {},
                   ),
                   border: InputBorder.none,
-                  fillColor: Color(0xfff3f3f4),
+                  fillColor: const Color(0xfff3f3f4),
                   filled: true),
             ),
           ),
@@ -108,27 +107,28 @@ class LoginPage extends StatelessWidget {
             height: height * 0.03,
           ),
           Center(
-            child: Container(
+            child: SizedBox(
               height: height * 0.08,
               width: width * 0.85,
               child: ElevatedButton(
-                  child: Text("connexion".toUpperCase(),
-                      style:
-                          TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
                   style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Color(0xff2b335d)),
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          const Color(0xff2b335d)),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
-                              side: BorderSide(color: Color(0xff2b335d))))),
-                  onPressed: () => Navigator.pushNamed(context, '/MenuPage')),
+                              side:
+                                  const BorderSide(color: Color(0xff2b335d))))),
+                  onPressed: () => Navigator.pushNamed(context, '/HomePage'),
+                  child: Text("connexion".toUpperCase(),
+                      style: const TextStyle(
+                          fontSize: 14, fontWeight: FontWeight.w400))),
             ),
           ),
           SizedBox(
             height: height * 0.03,
           ),
-          Center(
+          const Center(
             child: Text(
               "Mot de passe oublié?",
               style: TextStyle(
@@ -140,7 +140,7 @@ class LoginPage extends StatelessWidget {
           SizedBox(
             height: height * 0.05,
           ),
-          Center(
+          const Center(
             child: Text(
               "s'inscrire",
               style: TextStyle(

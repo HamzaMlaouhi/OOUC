@@ -1,16 +1,15 @@
+import 'package:OOUC/Widgets/BottomNavigationBar.dart';
 import 'package:flutter/material.dart';
 import 'package:sliding_switch/sliding_switch.dart';
 
-class MenuPage extends StatelessWidget {
-  const MenuPage({Key? key}) : super(key: key);
+class AppBarDrawer extends StatelessWidget {
+  const AppBarDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      appBar: AppBar(title: const Text("OOUC")),
-      drawer: Drawer(
+    return Drawer(
         elevation: 10.0,
         child: Column(
           children: <Widget>[
@@ -48,7 +47,7 @@ class MenuPage extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: new Image.asset("assets/image/Bedroom.png"),
+              leading: new Image.asset("assets/image/Scholarship.png"),
               trailing: Container(
                 height: 20,
                 width: 20,
@@ -77,7 +76,7 @@ class MenuPage extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.home),
+              leading: new Image.asset("assets/image/Mortgage.png"),
               trailing: Container(
                 height: 20,
                 width: 20,
@@ -112,7 +111,7 @@ class MenuPage extends StatelessWidget {
                   children: [
                     SizedBox(width: width * 0.01),
                     IconButton(
-                      icon: const Icon(Icons.question_mark_rounded),
+                      icon: new Image.asset("assets/image/light.png"),
                       onPressed: () {},
                     ),
                     SizedBox(width: width * 0.01),
@@ -148,11 +147,6 @@ class MenuPage extends StatelessWidget {
               ],
             ),
           ],
-        ),
-      ),
-      body: const Center(
-        child: Text('Home Page OOUC'),
-      ),
-    );
+        ));
   }
 }

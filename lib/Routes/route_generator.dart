@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:OOUC/Screens/LoginPage.dart';
-import 'package:OOUC/Screens/MenuPage.dart';
+import 'package:OOUC/Screens/HomePage.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    final args = settings.arguments;
 
     switch (settings.name) {
 
       /** Customer related routes **/
 
       case '/loginPage':
-        return MaterialPageRoute(builder: (_) => LoginPage());
+        return MaterialPageRoute(builder: (_) => const LoginPage());
 
-      case '/MenuPage':
-        return MaterialPageRoute(builder: (_) => MenuPage());
+      case '/HomePage':
+        return MaterialPageRoute(builder: (_) => const HomePage());
 
       default:
         return _errorRoute();
@@ -23,7 +22,7 @@ class RouteGenerator {
 
   static Route<dynamic> _errorRoute() {
     return MaterialPageRoute(builder: (_) {
-      return Scaffold(
+      return const Scaffold(
         body: Center(
           child: Text('ERROR'),
         ),
