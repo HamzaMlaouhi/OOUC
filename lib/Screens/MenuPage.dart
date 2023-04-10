@@ -48,7 +48,7 @@ class MenuPage extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.campaign_rounded),
+              leading: new Image.asset("assets/image/Bedroom.png"),
               trailing: Container(
                 height: 20,
                 width: 20,

@@ -19,7 +19,7 @@ class LoginPage extends StatelessWidget {
             child: Container(
                 height: height * 0.35,
                 width: width * 1,
-                child: Image.asset('assets/image/Logo.PNG')),
+                child: Image.asset('assets/image/LogoOnboarding.png')),
           ),
           Row(
             children: [
