@@ -16,84 +16,40 @@ class _CustomerBottomNavigationBarState
     extends State<CustomerBottomNavigationBar> {
   int currentIndex = 0;
 
+  void _onItemTapped(int index) {
+    setState(() {
+      currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
 
-    return ClipRRect(
-      borderRadius: BorderRadius.vertical(
-        top: Radius.circular(20),
-      ),
-      child: Container(
-        height: screenHeight * 0.10,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(20),
+    return BottomNavigationBar(
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: ImageIcon(
+            AssetImage("assets/image/first.png"),
           ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black38,
-              spreadRadius: 0,
-              blurRadius: 10,
-            ),
-          ],
+          label: '',
         ),
-        child: Row(
-          children: [
-            BottomNavigationBarItem(
-              0,
-              'First',
-            ),
-            BottomNavigationBarItem(
-              1,
-              'Second',
-            ),
-            BottomNavigationBarItem(
-              2,
-              'Third',
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Expanded BottomNavigationBarItem(index, label) {
-    return Expanded(
-      child: GestureDetector(
-        onTap: () {
-          setState(() {
-            currentIndex = index;
-          });
-        },
-        child: Container(
-          color: currentIndex == index ? Colors.grey[300] : Colors.white,
-          padding: EdgeInsets.symmetric(horizontal: 4),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SvgPicture.asset(
-                'assets/icons/Bedroom.svg',
-                height: 24,
-                width: 24,
-                color: currentIndex == index
-                    ? Colors.white
-                    : Colors.black.withOpacity(0.5),
-              ),
-              AutoSizeText(
-                label,
-                maxLines: 1,
-                style: TextStyle(
-                  color: currentIndex == index
-                      ? Colors.white
-                      : Colors.black.withOpacity(0.5),
-                  fontSize: 16,
-                ),
-              )
-            ],
+        BottomNavigationBarItem(
+          icon: ImageIcon(
+            AssetImage("assets/image/second.png"),
           ),
+          label: '',
         ),
-      ),
+        BottomNavigationBarItem(
+          icon: ImageIcon(
+            AssetImage("assets/image/third.png"),
+          ),
+          label: '',
+        ),
+      ],
+      currentIndex: currentIndex,
+      selectedItemColor: Colors.blue[800],
+      onTap: _onItemTapped,
     );
   }
 }
