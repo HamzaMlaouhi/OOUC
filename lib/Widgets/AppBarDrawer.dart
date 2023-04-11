@@ -1,12 +1,23 @@
+import 'dart:math';
+
 import 'package:OOUC/Widgets/BottomNavigationBar.dart';
+import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:sliding_switch/sliding_switch.dart';
+import 'package:toggle_switch/toggle_switch.dart';
 
-class AppBarDrawer extends StatelessWidget {
+class AppBarDrawer extends StatefulWidget {
   const AppBarDrawer({Key? key}) : super(key: key);
 
   @override
+  State<AppBarDrawer> createState() => _AppBarDrawerState();
+}
+
+class _AppBarDrawerState extends State<AppBarDrawer> {
+  @override
   Widget build(BuildContext context) {
+    int value = 1;
+
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Drawer(
@@ -124,7 +135,43 @@ class AppBarDrawer extends StatelessWidget {
                     ),
                   ],
                 ),
-                SlidingSwitch(
+                ToggleSwitch(
+                  minWidth: 100.0,
+                  minHeight: 50,
+                  cornerRadius: 20.0,
+                  activeBgColors: [
+                    [
+                      const Color(0xffe4e5eb),
+                    ],
+                    [
+                      const Color(0xffe4e5eb),
+                    ],
+                    [
+                      const Color(0xffe4e5eb),
+                    ]
+                  ],
+                  inactiveFgColor: const Color(0xff636f7b),
+                  activeFgColor: Colors.black,
+                  initialLabelIndex: null,
+                  doubleTapDisable: true, // re-tap active widget to de-activate
+                  totalSwitches: 3,
+                  labels: ['Français', 'العربية', 'Anglais'],
+                  customTextStyles: [
+                    null,
+                    TextStyle(
+                        color: const Color(0xff636f7b),
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.w900),
+                    TextStyle(
+                        color: const Color(0xff636f7b),
+                        fontSize: 16.0,
+                        fontStyle: FontStyle.italic)
+                  ],
+                  onToggle: (index) {
+                    print('switched to: $index');
+                  },
+                ),
+                /* SlidingSwitch(
                   value: false,
                   width: 300,
                   onChanged: (bool value) {
@@ -143,7 +190,7 @@ class AppBarDrawer extends StatelessWidget {
                   background: const Color(0xffe4e5eb),
                   buttonColor: const Color(0xfff7f5f7),
                   inactiveColor: const Color(0xff636f7b),
-                ),
+                ),*/
               ],
             ),
           ],
