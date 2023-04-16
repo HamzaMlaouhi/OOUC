@@ -1,10 +1,8 @@
-import 'dart:math';
-
-import 'package:OOUC/Widgets/BottomNavigationBar.dart';
-import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:flutter/material.dart';
-import 'package:sliding_switch/sliding_switch.dart';
-import 'package:toggle_switch/toggle_switch.dart';
+
+import '../Lang/language.dart';
+import '../Lang/language_constants.dart';
+import '../main.dart';
 
 class AppBarDrawer extends StatefulWidget {
   const AppBarDrawer({Key? key}) : super(key: key);
@@ -36,9 +34,9 @@ class _AppBarDrawerState extends State<AppBarDrawer> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const <Widget>[
+                    children: <Widget>[
                       Text(
-                        'Etudiant 01',
+                        "Etudiant 01",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
@@ -73,7 +71,9 @@ class _AppBarDrawerState extends State<AppBarDrawer> {
                   ),
                 ),
               ),
-              title: Text('Bourses universitaires',
+              title: Text(
+                  translation(context).boursesuniversitaires +
+                      translation(context).boursesuniversitaires1,
                   style: TextStyle(fontSize: 15)),
               onTap: () {
                 // Here you can give your route to navigate
@@ -81,7 +81,10 @@ class _AppBarDrawerState extends State<AppBarDrawer> {
             ),
             ListTile(
               leading: Icon(Icons.monetization_on),
-              title: Text('Aide sociale', style: TextStyle(fontSize: 15)),
+              title: Text(
+                  translation(context).aidesociale +
+                      translation(context).aidesociale1,
+                  style: TextStyle(fontSize: 15)),
               onTap: () {
                 // Here you can give your route to navigate
               },
@@ -102,7 +105,9 @@ class _AppBarDrawerState extends State<AppBarDrawer> {
                   ),
                 ),
               ),
-              title: const Text('Prêts universitaire',
+              title: Text(
+                  translation(context).pretsuniversitaire +
+                      translation(context).pretsuniversitaire1,
                   style: TextStyle(fontSize: 15)),
               onTap: () {
                 // Here you can give your route to navigate
@@ -127,7 +132,7 @@ class _AppBarDrawerState extends State<AppBarDrawer> {
                     ),
                     SizedBox(width: width * 0.01),
                     Text(
-                      "Langue ",
+                      translation(context).langue,
                       style: TextStyle(
                           color: Colors.grey[600],
                           fontSize: 20,
@@ -135,7 +140,37 @@ class _AppBarDrawerState extends State<AppBarDrawer> {
                     ),
                   ],
                 ),
-                ToggleSwitch(
+                DropdownButton<Language>(
+                  underline: const SizedBox(),
+                  icon: const Icon(
+                    Icons.language,
+                    color: Colors.white,
+                  ),
+                  onChanged: (Language? language) async {
+                    if (language != null) {
+                      Locale _locale = await setLocale(language.languageCode);
+                      MyApp.setLocale(context, _locale);
+                    }
+                  },
+                  items: Language.languageList()
+                      .map<DropdownMenuItem<Language>>(
+                        (e) => DropdownMenuItem<Language>(
+                          value: e,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                              Text(
+                                e.flag,
+                                style: const TextStyle(fontSize: 30),
+                              ),
+                              Text(e.name)
+                            ],
+                          ),
+                        ),
+                      )
+                      .toList(),
+                ),
+                /* ToggleSwitch(
                   minWidth: 100.0,
                   minHeight: 50,
                   cornerRadius: 20.0,
@@ -170,7 +205,7 @@ class _AppBarDrawerState extends State<AppBarDrawer> {
                   onToggle: (index) {
                     print('switched to: $index');
                   },
-                ),
+                ),*/
                 /* SlidingSwitch(
                   value: false,
                   width: 300,
