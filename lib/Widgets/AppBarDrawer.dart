@@ -141,22 +141,19 @@ class _AppBarDrawerState extends State<AppBarDrawer> {
                   ],
                 ),
                 Container(
-                  width: width * 0.3,
+                  width: width * 0.62,
                   decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.grey.shade600,
-                          spreadRadius: 1,
-                          blurRadius: 5)
-                    ],
                     border: Border.all(
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
                     color: const Color.fromARGB(255, 255, 255, 255),
-                    borderRadius: const BorderRadius.all(Radius.circular(20)),
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
                   ),
                   child: DropdownButton<Language>(
-                    hint: Text("   " + translation(context).lang),
+                    hint: Text(
+                      "                 " + translation(context).lang + "  ",
+                      style: TextStyle(fontSize: 19),
+                    ),
                     icon: const Icon(
                       Icons.language,
                       color: Color.fromARGB(255, 0, 0, 0),
@@ -174,11 +171,12 @@ class _AppBarDrawerState extends State<AppBarDrawer> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: <Widget>[
-                                Text(
-                                  e.flag,
-                                  style: const TextStyle(fontSize: 30),
-                                ),
-                                Text(e.name)
+                                Container(
+                                    width: width * 0.2,
+                                    child: Text(
+                                      e.name,
+                                      style: TextStyle(fontSize: 18),
+                                    ))
                               ],
                             ),
                           ),
@@ -186,62 +184,9 @@ class _AppBarDrawerState extends State<AppBarDrawer> {
                         .toList(),
                   ),
                 ),
-                /* ToggleSwitch(
-                  minWidth: 100.0,
-                  minHeight: 50,
-                  cornerRadius: 20.0,
-                  activeBgColors: [
-                    [
-                      const Color(0xffe4e5eb),
-                    ],
-                    [
-                      const Color(0xffe4e5eb),
-                    ],
-                    [
-                      const Color(0xffe4e5eb),
-                    ]
-                  ],
-                  inactiveFgColor: const Color(0xff636f7b),
-                  activeFgColor: Colors.black,
-                  initialLabelIndex: null,
-                  doubleTapDisable: true, // re-tap active widget to de-activate
-                  totalSwitches: 3,
-                  labels: ['Français', 'العربية', 'Anglais'],
-                  customTextStyles: [
-                    null,
-                    TextStyle(
-                        color: const Color(0xff636f7b),
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.w900),
-                    TextStyle(
-                        color: const Color(0xff636f7b),
-                        fontSize: 16.0,
-                        fontStyle: FontStyle.italic)
-                  ],
-                  onToggle: (index) {
-                    print('switched to: $index');
-                  },
-                ),*/
-                /* SlidingSwitch(
-                  value: false,
-                  width: 300,
-                  onChanged: (bool value) {
-                    print(value);
-                  },
-                  height: height * 0.07,
-                  animationDuration: const Duration(milliseconds: 100),
-                  onTap: () {},
-                  onDoubleTap: () {},
-                  onSwipe: () {},
-                  textOff: "Français",
-                  textOn: "العربية",
-                  contentSize: 17,
-                  colorOn: const Color(0xffdc6c73),
-                  colorOff: const Color(0xff6682c0),
-                  background: const Color(0xffe4e5eb),
-                  buttonColor: const Color(0xfff7f5f7),
-                  inactiveColor: const Color(0xff636f7b),
-                ),*/
+                SizedBox(
+                  height: height * 0.01,
+                )
               ],
             ),
           ],

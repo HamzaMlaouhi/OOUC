@@ -210,7 +210,7 @@ class HomePage extends StatelessWidget {
                                 children: [
                                   Align(
                                       child: Text(
-                                    translation(context).aidesociale,
+                                    translation(context).pretsuniversitaire,
                                     style: TextStyle(
                                       fontFamily: 'Inter',
                                       fontStyle: FontStyle.normal,
@@ -220,7 +220,8 @@ class HomePage extends StatelessWidget {
                                   )),
                                   translation(context).lang != "العربية"
                                       ? Text(
-                                          translation(context).aidesociale1,
+                                          translation(context)
+                                              .pretsuniversitaire1,
                                           style: TextStyle(
                                             fontFamily: 'Inter',
                                             fontStyle: FontStyle.normal,
