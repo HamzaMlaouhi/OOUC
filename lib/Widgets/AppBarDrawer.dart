@@ -140,35 +140,51 @@ class _AppBarDrawerState extends State<AppBarDrawer> {
                     ),
                   ],
                 ),
-                DropdownButton<Language>(
-                  underline: const SizedBox(),
-                  icon: const Icon(
-                    Icons.language,
-                    color: Colors.white,
+                Container(
+                  width: width * 0.3,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.grey.shade600,
+                          spreadRadius: 1,
+                          blurRadius: 5)
+                    ],
+                    border: Border.all(
+                      color: Color.fromARGB(255, 0, 0, 0),
+                    ),
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    borderRadius: const BorderRadius.all(Radius.circular(20)),
                   ),
-                  onChanged: (Language? language) async {
-                    if (language != null) {
-                      Locale _locale = await setLocale(language.languageCode);
-                      MyApp.setLocale(context, _locale);
-                    }
-                  },
-                  items: Language.languageList()
-                      .map<DropdownMenuItem<Language>>(
-                        (e) => DropdownMenuItem<Language>(
-                          value: e,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: <Widget>[
-                              Text(
-                                e.flag,
-                                style: const TextStyle(fontSize: 30),
-                              ),
-                              Text(e.name)
-                            ],
+                  child: DropdownButton<Language>(
+                    hint: Text("   " + translation(context).lang),
+                    icon: const Icon(
+                      Icons.language,
+                      color: Color.fromARGB(255, 0, 0, 0),
+                    ),
+                    onChanged: (Language? language) async {
+                      if (language != null) {
+                        Locale _locale = await setLocale(language.languageCode);
+                        MyApp.setLocale(context, _locale);
+                      }
+                    },
+                    items: Language.languageList()
+                        .map<DropdownMenuItem<Language>>(
+                          (e) => DropdownMenuItem<Language>(
+                            value: e,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: <Widget>[
+                                Text(
+                                  e.flag,
+                                  style: const TextStyle(fontSize: 30),
+                                ),
+                                Text(e.name)
+                              ],
+                            ),
                           ),
-                        ),
-                      )
-                      .toList(),
+                        )
+                        .toList(),
+                  ),
                 ),
                 /* ToggleSwitch(
                   minWidth: 100.0,

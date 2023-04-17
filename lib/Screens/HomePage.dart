@@ -1,8 +1,7 @@
 import 'package:OOUC/Widgets/BottomNavigationBar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:sliding_switch/sliding_switch.dart';
 
+import '../Lang/language_constants.dart';
 import '../Widgets/AppBarDrawer.dart';
 
 class HomePage extends StatelessWidget {
@@ -99,9 +98,10 @@ class HomePage extends StatelessWidget {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  const Align(
+                                  Align(
                                       child: Text(
-                                    "Hébergement ",
+                                    translation(context)
+                                        .hebergementuniversitaire,
                                     style: TextStyle(
                                       fontFamily: 'Inter',
                                       fontStyle: FontStyle.normal,
@@ -109,15 +109,18 @@ class HomePage extends StatelessWidget {
                                       fontSize: 12.0,
                                     ),
                                   )),
-                                  const Text(
-                                    "universitaire",
-                                    style: TextStyle(
-                                      fontFamily: 'Inter',
-                                      fontStyle: FontStyle.normal,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 12.0,
-                                    ),
-                                  ),
+                                  translation(context).lang != "العربية"
+                                      ? Text(
+                                          translation(context)
+                                              .hebergementuniversitaire1,
+                                          style: TextStyle(
+                                            fontFamily: 'Inter',
+                                            fontStyle: FontStyle.normal,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 12.0,
+                                          ),
+                                        )
+                                      : SizedBox(),
                                   SizedBox(
                                     height: height * 0.025,
                                   )
@@ -151,9 +154,9 @@ class HomePage extends StatelessWidget {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  const Align(
+                                  Align(
                                       child: Text(
-                                    "Aide ",
+                                    translation(context).aidesociale,
                                     style: TextStyle(
                                       fontFamily: 'Inter',
                                       fontStyle: FontStyle.normal,
@@ -161,15 +164,17 @@ class HomePage extends StatelessWidget {
                                       fontSize: 12.0,
                                     ),
                                   )),
-                                  const Text(
-                                    "sociale",
-                                    style: TextStyle(
-                                      fontFamily: 'Inter',
-                                      fontStyle: FontStyle.normal,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 12.0,
-                                    ),
-                                  ),
+                                  translation(context).lang != "العربية"
+                                      ? Text(
+                                          translation(context).aidesociale1,
+                                          style: TextStyle(
+                                            fontFamily: 'Inter',
+                                            fontStyle: FontStyle.normal,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 12.0,
+                                          ),
+                                        )
+                                      : SizedBox(),
                                   SizedBox(
                                     height: height * 0.025,
                                   )
@@ -203,9 +208,9 @@ class HomePage extends StatelessWidget {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  const Align(
+                                  Align(
                                       child: Text(
-                                    "Prêts",
+                                    translation(context).aidesociale,
                                     style: TextStyle(
                                       fontFamily: 'Inter',
                                       fontStyle: FontStyle.normal,
@@ -213,15 +218,17 @@ class HomePage extends StatelessWidget {
                                       fontSize: 12.0,
                                     ),
                                   )),
-                                  const Text(
-                                    "universitaire",
-                                    style: TextStyle(
-                                      fontFamily: 'Inter',
-                                      fontStyle: FontStyle.normal,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 12.0,
-                                    ),
-                                  ),
+                                  translation(context).lang != "العربية"
+                                      ? Text(
+                                          translation(context).aidesociale1,
+                                          style: TextStyle(
+                                            fontFamily: 'Inter',
+                                            fontStyle: FontStyle.normal,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 12.0,
+                                          ),
+                                        )
+                                      : SizedBox(),
                                   SizedBox(
                                     height: height * 0.025,
                                   )
@@ -262,9 +269,9 @@ class HomePage extends StatelessWidget {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  const Align(
+                                  Align(
                                       child: Text(
-                                    "Bourse",
+                                    translation(context).boursesuniversitaires,
                                     style: TextStyle(
                                       fontFamily: 'Inter',
                                       fontStyle: FontStyle.normal,
@@ -272,15 +279,18 @@ class HomePage extends StatelessWidget {
                                       fontSize: 12.0,
                                     ),
                                   )),
-                                  const Text(
-                                    "universitaire",
-                                    style: TextStyle(
-                                      fontFamily: 'Inter',
-                                      fontStyle: FontStyle.normal,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 12.0,
-                                    ),
-                                  ),
+                                  translation(context).lang != "العربية"
+                                      ? Text(
+                                          translation(context)
+                                              .boursesuniversitaires1,
+                                          style: TextStyle(
+                                            fontFamily: 'Inter',
+                                            fontStyle: FontStyle.normal,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 12.0,
+                                          ),
+                                        )
+                                      : SizedBox(),
                                   SizedBox(
                                     height: height * 0.025,
                                   )
@@ -314,9 +324,10 @@ class HomePage extends StatelessWidget {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  const Align(
+                                  Align(
                                       child: Text(
-                                    "Restauration ",
+                                    translation(context)
+                                        .restaurationuniversitaire,
                                     style: TextStyle(
                                       fontFamily: 'Inter',
                                       fontStyle: FontStyle.normal,
@@ -324,15 +335,18 @@ class HomePage extends StatelessWidget {
                                       fontSize: 12.0,
                                     ),
                                   )),
-                                  const Text(
-                                    "universitaire",
-                                    style: TextStyle(
-                                      fontFamily: 'Inter',
-                                      fontStyle: FontStyle.normal,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 12.0,
-                                    ),
-                                  ),
+                                  translation(context).lang != "العربية"
+                                      ? Text(
+                                          translation(context)
+                                              .restaurationuniversitaire1,
+                                          style: TextStyle(
+                                            fontFamily: 'Inter',
+                                            fontStyle: FontStyle.normal,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 12.0,
+                                          ),
+                                        )
+                                      : SizedBox(),
                                   SizedBox(
                                     height: height * 0.025,
                                   )
@@ -343,8 +357,8 @@ class HomePage extends StatelessWidget {
                           ),
                           Row(
                             children: [
-                              const Text(
-                                "Plus",
+                              Text(
+                                translation(context).plus,
                                 style: TextStyle(
                                     fontSize: 22, color: Colors.white),
                               ),
